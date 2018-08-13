@@ -115,8 +115,9 @@ resource "aws_security_group_rule" "allow_all_outbound" {
 }
 
 
-data "aws_instances" "workers" {
+/*data "aws_instances" "workers" {
   instance_tags {
     Name = "${var.cluster_name}"
   }
 }
+*/
