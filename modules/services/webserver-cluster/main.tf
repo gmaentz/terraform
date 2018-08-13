@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "example" {
   user_data = <<EOF
              #!/bin/bash
              sudo yum install -y httpd
-             echo "<html><h1>Hello from AWS - "${var.cluster_name} - " </h2></html>" > /var/www/html/index.html
+             echo "<html><h1>Hello from AWS - "${var.cluster_name}" </h2></html>" > /var/www/html/index.html
              sudo service httpd start
              EOF
   key_name = "${var.key_name}"
@@ -127,12 +127,4 @@ data "aws_instances" "workers" {
   instance_tags {
     Name = "${var.cluster_name}"
   }
-}
-
-output "private-ips" {
-  value = "${data.aws_instances.workers.private_ips}"
-}
-
-output "public-ips" {
-  value = "${data.aws_instances.workers.public_ips}"
 }
