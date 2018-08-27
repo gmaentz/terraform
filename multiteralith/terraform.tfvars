@@ -1,0 +1,18 @@
+#VPC Information
+region = "us-east-1"
+environment = "staging"
+name = "staging"
+cidr = "10.1.0.0/16"
+zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+private_subnets = ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
+public_subnets  = ["10.1.101.0/24", "10.1.102.0/24", "10.1.103.0/24"]
+database_subnets = ["10.1.201.0/24", "10.1.202.0/24"]
+owner       = "user"
+
+#Fleet Information
+cluster_name    = "webserver-staging"
+ami             = "ami-cfe4b2b0"
+key_name        = "MyEC2Instance"
+instance_type		= "t2.micro"
+min_size			= 4
+max_size			= 6
