@@ -1,3 +1,5 @@
+#Sample terraform.tfvars file for STAGING
+
 #VPC Information
 region = "us-east-1"
 environment = "staging"
