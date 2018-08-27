@@ -1,7 +1,9 @@
+#Connect to AWS
 provider "aws" {
   region = "us-west-2"
 }
 
+#Build out my VPC
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "1.37.0"
@@ -26,4 +28,17 @@ module "vpc" {
   vpc_tags = {
     Name = "dev-environment"
   }
+}
+
+#Deploy the Fleet
+module "webserver_cluster" {
+  source = "github.com/gmaentz/terraform/modules/services/webserver-cluster"
+  cluster_name = "webserver-dev"
+  ami = "ami-a9d09ed1"
+  key_name = "MyOregonSSH"
+  instance_type = "t2.micro"
+  min_size = 2
+  max_size = 2
+  vpc_id = "${module.vpc.vpc_id}"
+  subnet_ids = ["${module.vpc.public_subnets}"]
 }
