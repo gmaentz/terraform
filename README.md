@@ -1,7 +1,7 @@
 # Example For Using Terraform to Deploy a auto-scaling server fleet in AWS, across regions
 This Terraform configuration provides an example that is meant to be followed along with the [Using Terraform to Up Your Automation Game](http://www.maentz.net/pensieve/xny7mfbtg7w37ynstrd5jsympl9lc9?rq=terraform) blog series for deploying a fleet of auto-scaling servers.
 
-##Mission
+## Mission
 Our mission is to create and deploy a set of auto-scaling web servers, front ended by a load balancer for our development, staging and production environments across 3 different AWS regions.  We will utilize a modular approach to create and build our infrastructure, and reuse our code when possible to keep things simple.
 
 ## Introduction

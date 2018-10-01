@@ -8,6 +8,10 @@
 # Terraform Variables
 *.tfvars
 
+#Terraform Plan
+*.tfplan
+*.tfpl
+
 # SSH Keys
 *.pem
 

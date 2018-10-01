@@ -1,10 +1,3 @@
-variable "sms_number" {
-  description = "The SMS number to send CloudWatch Notifications To"
-}
-variable "autoscaling_group" {
-  description = "The autoscaling group to monitor"
-}
-
 resource "aws_sns_topic" "send_text" {
   name = "sendText"
 }
