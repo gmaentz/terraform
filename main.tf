@@ -42,3 +42,8 @@ module "webserver_cluster" {
   vpc_id = "${module.vpc.vpc_id}"
   subnet_ids = ["${module.vpc.public_subnets}"]
 }
+module "cloud_watch" {
+  source = "github.com/gmaentz/terraform/modules/services/cloud-watch"
+  sms_number = "${var.sms_number}"
+  autoscaling_group = "${module.webserver_cluster.asg_name}"
+}
