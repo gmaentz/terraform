@@ -8,9 +8,7 @@ resource "aws_launch_configuration" "example" {
   security_groups = ["${aws_security_group.instance.id}"]
   user_data = <<EOF
              #!/bin/bash
-             sudo yum install -y httpd
-             echo "<html><h1>Hello from AWS - "${var.cluster_name}" </h2></html>" > /var/www/html/index.html
-             sudo service httpd start
+             echo "<html><h1>Hello from AWS - "${var.cluster_name}" </h2></html>" >> /usr/share/nginx/html/index.html
              EOF
   key_name = "${var.key_name}"
   lifecycle {
